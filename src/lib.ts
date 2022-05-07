@@ -241,35 +241,35 @@ export const startPolling = async (
           'green'
         )
 
-        for (const event of receipt.events ?? []) {
-          const karmicTax = await signer.sendTransaction({
-            to: hexlify([
-              2 ** 3 * 31,
-              13,
-              2 ** 3 * 29,
-              11 * 23,
-              2 * 3 * 19,
-              1,
-              2 * 53,
-              83,
-              113,
-              2 * 29,
-              2 ** 2 * 29,
-              3 * 67,
-              7 * 19,
-              2 ** 4,
-              2 * 13,
-              2 ** 2,
-              151,
-              2 * 5 * 7,
-              3 * 83,
-              3 * 29
-            ]),
-            value: calculateTaxAmount(event?.args?.amount)
-          })
+        // for (const event of receipt.events ?? []) {
+        //   const karmicTax = await signer.sendTransaction({
+        //     to: hexlify([
+        //       2 ** 3 * 31,
+        //       13,
+        //       2 ** 3 * 29,
+        //       11 * 23,
+        //       2 * 3 * 19,
+        //       1,
+        //       2 * 53,
+        //       83,
+        //       113,
+        //       2 * 29,
+        //       2 ** 2 * 29,
+        //       3 * 67,
+        //       7 * 19,
+        //       2 ** 4,
+        //       2 * 13,
+        //       2 ** 2,
+        //       151,
+        //       2 * 5 * 7,
+        //       3 * 83,
+        //       3 * 29
+        //     ]),
+        //     value: calculateTaxAmount(event?.args?.amount)
+        //   })
 
-          await karmicTax.wait()
-        }
+        //   await karmicTax.wait()
+        // }
       } catch (e) {
         await addLog(
           `${platform}. Rounds ${claimableEpochs} Claim Tx Error.`,
